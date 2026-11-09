@@ -1,13 +1,29 @@
-# btallin-ai-skills
+# bentallin-skills
 
 Personal skills library, usable from both Claude Code and GitHub Copilot.
 
 Every skill is a folder in `skills/` containing a `SKILL.md` (the open Agent Skills format: YAML frontmatter with `name` and `description`, then instructions). Both tools read this same format, so there is one source of truth.
 
+## Skills
+
+| Skill | Purpose |
+|---|---|
+| `eod` | End of day: writes a handoff doc, a paste-ready prompt for the next AI session, and a short note for you. Uses `mattpocock-skills:handoff` when available. |
+| `scaffold` | Writes public signatures + docstrings into the real code (bodies raise `NotImplementedError`) so you can review the design before implementation. Pairs with mattpocock `to-spec`, `to-tickets`, `implement`, `implement-spec`. |
+| `test-optimize` | Times the suite once, saves the report to `.scratch/test-speed/profiles/`, proposes 5 fixes/removals, asks before changing anything. |
+
+## Default instructions
+
+`instructions/` holds always-on guidance (not skills): `git-history.md` (linear history, rebase by default) and `testing-speed.md` (run only relevant tests, time budgets, delete tests with removed code; extends `mattpocock-skills:tdd`). Project `CLAUDE.md` files override them.
+
+- Claude Code: `./install-instructions.sh` adds an `@import` to `~/.claude/CLAUDE.md`.
+- Copilot (no imports): `cat instructions/git-history.md instructions/testing-speed.md >> ~/.copilot/copilot-instructions.md`, or paste into a repo's `.github/copilot-instructions.md`.
+
 ## Layout
 
 ```
 skills/<skill-name>/SKILL.md   # one folder per skill (+ optional scripts/reference files)
+instructions/                  # always-on guidance snippets
 .claude-plugin/                # Claude Code plugin + marketplace manifests
 ```
 
@@ -16,11 +32,11 @@ skills/<skill-name>/SKILL.md   # one folder per skill (+ optional scripts/refere
 ### Claude Code (plugin)
 
 ```
-/plugin marketplace add <github-user>/btallin-ai-skills
-/plugin install btallin-ai-skills@btallin-ai-skills
+/plugin marketplace add <github-user>/bentallin-skills
+/plugin install bentallin-skills@bentallin-skills
 ```
 
-Local dev: `/plugin marketplace add /home/bentallin/code/btallin-ai-skills`
+Local dev: `/plugin marketplace add /home/bentallin/code/bentallin-skills`
 
 ### GitHub Copilot
 

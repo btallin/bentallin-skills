@@ -1,9 +1,9 @@
 {
-  "name": "btallin-ai-skills",
+  "name": "bentallin-skills",
   "owner": { "name": "btallin" },
   "plugins": [
     {
-      "name": "btallin-ai-skills",
+      "name": "bentallin-skills",
       "source": "./",
       "description": "Personal AI skills library"
     }
