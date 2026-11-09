@@ -1,0 +1,11 @@
+{
+  "name": "btallin-ai-skills",
+  "owner": { "name": "btallin" },
+  "plugins": [
+    {
+      "name": "btallin-ai-skills",
+      "source": "./",
+      "description": "Personal AI skills library"
+    }
+  ]
+}
