@@ -38,15 +38,24 @@ instructions/                  # always-on guidance snippets
 
 Local dev: `/plugin marketplace add /home/bentallin/code/bentallin-skills`
 
-### GitHub Copilot
+### GitHub Copilot CLI (plugin)
 
-Copilot reads skills from `.github/skills/` (per repo) or `~/.copilot/skills/` (personal). Simplest is a symlink:
+Copilot CLI reads the same `.claude-plugin/` manifests, so the same plugin installs there:
+
+```
+copilot plugin marketplace add btallin/bentallin-skills
+copilot plugin install bentallin-skills@bentallin-skills
+```
+
+(Inside a session: `/plugin marketplace add ...` and `/plugin install ...`.)
+
+### GitHub Copilot in VS Code / other (no plugin)
+
+Copilot reads skills from `.github/skills/` (per repo) or `~/.copilot/skills/` (personal). Symlink:
 
 ```
 ln -s "$PWD/skills" ~/.copilot/skills
 ```
-
-(or link individual skill folders if you already have other skills there).
 
 ## Adding a skill
 
