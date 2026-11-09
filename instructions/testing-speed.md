@@ -1,6 +1,6 @@
 ## Development checks and testing speed
 
-These rules apply on top of any TDD workflow, including `mattpocock-skills:tdd`. A repo's own `CLAUDE.md`/`AGENTS.md` overrides the numbers below.
+These rules apply on top of any test-driven development workflow, including `mattpocock-skills:tdd`. A repo's own `CLAUDE.md`/`AGENTS.md` overrides the numbers below.
 
 - **Run only relevant tests while developing.** Run the tests for the file, module or function you are changing (for example `pytest tests/x/test_y.py -k name`), not the whole suite, on each red/green iteration.
 - **Run the full checks once, at the end.** Lint, types and the full test suite run when you finish a task or a set of tasks, not on every change.
